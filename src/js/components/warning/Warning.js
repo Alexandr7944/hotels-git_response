@@ -1,9 +1,9 @@
-import "./warning-style.sass";
-
 class Warning {
   constructor(form, element) {
     this.form = form;
     this.element = element;
+
+    this.removeWarning = this.removeWarning.bind(this);
   }
 
   showWarning(text) {
@@ -13,7 +13,7 @@ class Warning {
     warning.innerHTML = text;
     this.element.prepend(warning);
 
-    this.form.addEventListener("input", () => this.removeWarning(), {
+    this.form.addEventListener("input", this.removeWarning, {
       once: true,
     });
   }

@@ -6,7 +6,13 @@ class OutputElement {
   createElement() {
     const itemRepo = document.createElement("div");
     itemRepo.className = "output__repo";
-    itemRepo.innerHTML = `
+    itemRepo.innerHTML = this.elementHTML;
+
+    return itemRepo;
+  }
+
+  get elementHTML() {
+    return `
       <img src=${this.repo.owner.avatar_url} alt="avatar" class="output__img">
       <ul class="output__text">
         <li class="output__item">
@@ -27,7 +33,6 @@ class OutputElement {
         <li class="output__item">Основной язык: ${this.repo.language}</li>
       </ul>
     `;
-    return itemRepo;
   }
 }
 

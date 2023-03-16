@@ -1,5 +1,3 @@
-import "./loader-style.sass";
-
 class Loader {
   constructor(element) {
     this.element = element;
